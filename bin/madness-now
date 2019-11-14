@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'madness'
+require 'os'
+
+fork do
+  Madness::CommandLine.instance.execute ARGV
+end
+
+# TODO, URL shouldnt be hardcoded
+system(OS.open_file_command, 'http://localhost:3000')
+
+Process.wait
