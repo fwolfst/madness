@@ -12,7 +12,7 @@ module Madness
 
     # Process ARGV by putting it through docopt
     def execute(argv=[])
-      doc = File.read File.expand_path('docopt.txt', __dir__)
+      doc = File.read File.expand_path("docopt-#{File.basename $PROGRAM_NAME}.txt", __dir__)
       
       begin
         args = Docopt.docopt(doc, argv: argv, version: VERSION)
